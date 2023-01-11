@@ -1,9 +1,9 @@
 CREATE TABLE users (
   user_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  user_name VARCHAR(100) NOT NULL,
+  user_name VARCHAR(100) NOT NULL UNIQUE,
   auth_token VARCHAR(100) NOT NULL,
-  first_name TEXT,
-  last_name TEXT,
+  first_name VARCHAR(100) NOT NULL,
+  last_name VARCHAR(100) NOT NULL
   );
 CREATE TABLE income (
   income_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
