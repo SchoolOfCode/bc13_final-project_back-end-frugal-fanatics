@@ -11,9 +11,15 @@ export async function getExpenses(userID) {
   return expenseArray;
 }
 
-//Need to complete this part
-// const async function createExpenses(expenses) {
-//   const result = await query(`INSERT INTO expenses (expense_type, expense_amount, frequency, user_ID) VALUES ($1, $2, $3, $4) RETURN*;` [expenses],
-//     [userID]
-//   );
-// }
+export async function createExpenses(expenses) {
+  const result = await query(
+    `INSERT INTO expenses (expense_type, expense_amount, frequency, user_ID) VALUES ($1, $2, $3, $4) RETURN*;`[
+      (expenses.expense_type,
+      expenses.expense_amount,
+      expenses.frequency,
+      expenses.user_ID)
+    ]
+  );
+  const expense = result.rows[0].user_ID;
+  return expense;
+}

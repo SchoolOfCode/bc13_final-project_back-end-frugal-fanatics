@@ -10,8 +10,8 @@ router.get("/"),
     return res.status(200).json({ success: true, payload: result });
   };
 
-  router.post("/"),
-    async function (req, res) {
+router.post("/"),
+  async function (req, res) {
     const users = await createUser(req.body);
     return res.status(200).json({ success: true, payload: result });
-    };
+  };
