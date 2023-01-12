@@ -1,5 +1,5 @@
 import express from "express";
-const router = express.Router();
+const savingsRouter = express.Router();
 import { getSavings, createSavings } from "../models/savingsModels.js";
 
 router.get("/"),
@@ -14,3 +14,5 @@ router.post("/"),
     const users = await createSavings(req.body);
     return res.status(200).json({ success: true, payload: result });
   };
+
+  export default savingsRouter;

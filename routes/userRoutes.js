@@ -1,5 +1,5 @@
 import express from "express";
-const router = express.Router();
+const userRouter = express.Router();
 
 import { getUserID, createUser } from "../models/userModels.js";
 
@@ -15,3 +15,5 @@ router.post("/"),
     const users = await createUser(req.body);
     return res.status(200).json({ success: true, payload: result });
   };
+
+  export default userRouter;
