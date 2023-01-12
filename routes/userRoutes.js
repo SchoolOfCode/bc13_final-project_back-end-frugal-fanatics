@@ -1,17 +1,23 @@
 import express from "express";
-const router = express.Router();
+const userRouter = express.Router();
 
-import { getUserID, createUser } from "../models/userModels.js";
+import { getAllUsers, getUserID, createUser } from "../models/userModels.js";
 
-router.get("/"),
-  async function (req, res) {
+userRouter.get("/", async function (req, res) {
+    const result = await getAllUsers();
+    return res.status(200).json({ success: true, payload: result});
+});
+
+userRouter.get("/", async function (req, res) {
     const result = await getUserID(req.query.user_ID);
     console.log(`this is from week ${result}`);
     return res.status(200).json({ success: true, payload: result });
-  };
+});
 
-router.post("/"),
-  async function (req, res) {
-    const users = await createUser(req.body);
+userRouter.post("/", async function (req, res) {
+    const newUser = req.body;
+    const result = await createUser(newUser);
     return res.status(200).json({ success: true, payload: result });
-  };
+  });
+
+  export default userRouter;

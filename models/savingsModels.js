@@ -1,13 +1,17 @@
-import pkg from "../db/index.cjs";
-const { query } = pkg;
+import { query } from "../database/index.js";
+
+export async function getAllSavings() {
+  const result = await query(`SELECT * FROM savings`);
+  return result.rows;
+}
 
 export async function getSavings(userID) {
   const result = await query(
-    `SELECT savings_total, overall_target FROM savings WHERE userID = $1`,
-    [userID]
+    `SELECT savings_total, overall_target FROM savings WHERE user_ID = $1`,
+    [user_ID]
   );
   const savingsArray = result.rows;
-  console.log(`this is the list  by ${savingsArray}`);
+  console.log(`this is the list by ${savingsArray}`);
   return savingsArray;
 }
 
