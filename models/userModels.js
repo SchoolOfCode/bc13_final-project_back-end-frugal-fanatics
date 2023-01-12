@@ -1,5 +1,4 @@
-import pkg from "../db/index.cjs";
-const { query } = pkg;
+import { query } from "../database/index.js";
 
 export async function getUserID() {
   const result = await query(`SELECT userID FROM users WHERE user = $1`, [

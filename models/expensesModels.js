@@ -1,5 +1,4 @@
-import pkg from "../db/index.js";
-const { query } = pkg;
+import { query } from "../database/index.js";
 
 export async function getExpenses(userID) {
   const result = await query(

@@ -1,4 +1,4 @@
-import pg from 'pg';
+import pg from "pg";
 const databaseURL = process.env.POSTGRES_CONNECTION_URL;
 
 if (undefined === databaseURL) {
@@ -7,11 +7,12 @@ if (undefined === databaseURL) {
     );
 }
 
-const pool = new pg.pool({
+const pool = new pg.Pool({
     connectionString: databaseURL,
 });
 
-function query(text,params) {
-    return pool.query(text,params);
+function query(text, params) {
+    return pool.query(text, params);
 }
-export {query};
+
+export { query };
