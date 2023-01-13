@@ -5,25 +5,25 @@ export async function getAllSavings() {
   return result.rows;
 }
 
-export async function getSavings(userID) {
+export async function getSavings(user_id) {
   const result = await query(
     `SELECT savings_total, overall_target FROM savings WHERE user_ID = $1`,
-    [user_ID]
+    [user_id]
   );
   const savingsArray = result.rows;
   console.log(`this is the list by ${savingsArray}`);
   return savingsArray;
 }
 
-export async function createSavings(savings) {
+export async function createSavings({ overall_target, savings_total, pot_totals, user_id }) {
   const result = await query(
-    `INSERT INTO savings(overall_target, savings_total, pot_totals, user_ID) VALUES ($1, $2, $3, $4) RETURN *;`[
-      (savings.overall_target,
-      savings.savings_total,
-      savings.pot_totals,
-      savings.user_ID)
+    `INSERT INTO savings(overall_target, savings_total, pot_totals, user_id) VALUES ($1, $2, $3, $4) RETURNING *`, [
+      overall_target,
+      savings_total,
+      pot_totals, 
+      user_id
     ]
   );
-  const saving = result.rows[0].user_ID;
+  const saving = result.rows;
   return saving;
 }
