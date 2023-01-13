@@ -16,13 +16,13 @@ export async function getExpenses(user_ID) {
 }
 
 export async function createExpenses({ expense_type, expense_amount,
-  frequency, user_ID }) {
+  frequency, user_id }) {
   const result = await query(
-    `INSERT INTO expenses (expense_type, expense_amount, frequency, user_id) VALUES ($1, $2, $3, $4) RETURNING *`[
+    `INSERT INTO expenses (expense_type, expense_amount, frequency, user_id) VALUES ($1, $2, $3, $4) RETURNING *`,[
       expense_type,
       expense_amount,
       frequency,
-      user_ID
+      user_id
     ]
   );
   const expense = result.rows;

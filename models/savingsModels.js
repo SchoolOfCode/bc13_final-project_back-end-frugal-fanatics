@@ -5,10 +5,10 @@ export async function getAllSavings() {
   return result.rows;
 }
 
-export async function getSavings(userID) {
+export async function getSavings(user_id) {
   const result = await query(
     `SELECT savings_total, overall_target FROM savings WHERE user_ID = $1`,
-    [user_ID]
+    [user_id]
   );
   const savingsArray = result.rows;
   console.log(`this is the list by ${savingsArray}`);
