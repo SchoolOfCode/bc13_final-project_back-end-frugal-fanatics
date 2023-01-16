@@ -1,7 +1,15 @@
 import express from "express";
 const incomeRouter = express.Router();
-import { createIncome, getIncome } from "../models/incomeModels.js";
+import {
+  createIncome,
+  getIncome,
+  /*getAllIncome*/
+} from "../models/incomeModels.js";
 
+incomeRouter.get("/", async function (req, res) {
+  const result = await getAllIncome();
+  return res.status(200).json({ success: true, payload: result });
+});
 incomeRouter.get("/"),
   async function (req, res) {
     const result = await getIncome(req.query.userID);
@@ -10,8 +18,8 @@ incomeRouter.get("/"),
   };
 
 incomeRouter.post("/", async function (req, res) {
-  const newExpenses = req.body;
-  const result = await createIncome(newExpenses);
+  const newIncome = req.body;
+  const result = await createIncome(newIncome);
   return res.status(200).json({ success: true, payload: result });
 });
 
