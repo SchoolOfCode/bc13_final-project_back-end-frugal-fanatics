@@ -1,16 +1,22 @@
 import express from "express";
-const router = express.Router();
-import { getSavings, createSavings } from "../models/savingsModels.js";
+const savingsRouter = express.Router();
+import { getAllSavings, getSavings, createSavings } from "../models/savingsModels.js";
 
-router.get("/"),
-  async function (req, res) {
-    const result = await getSavings(req.query.userID);
+savingsRouter.get("/", async function (req, res) {
+  const result = await getAllSavings();
+  return res.status(200).json({ success: true, payload: result});
+});
+
+savingsRouter.get("/", async function (req, res) {
+    const result = await getSavings(req.query.user_id);
     console.log(`this is from week ${result}`);
     return res.status(200).json({ success: true, payload: result });
-  };
+  });
 
-router.post("/"),
-  async function (req, res) {
-    const users = await createSavings(req.body);
+savingsRouter.post("/", async function (req, res) {
+  const newSavings = req.body  
+  const result = await createSavings(newSavings);
     return res.status(200).json({ success: true, payload: result });
-  };
+  });
+
+  export default savingsRouter;
