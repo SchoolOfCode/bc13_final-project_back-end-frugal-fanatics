@@ -3,7 +3,7 @@ const incomeRouter = express.Router();
 import {
   createIncome,
   getIncome,
-  getAllIncome,
+  /*getAllIncome*/
 } from "../models/incomeModels.js";
 
 incomeRouter.get("/", async function (req, res) {
