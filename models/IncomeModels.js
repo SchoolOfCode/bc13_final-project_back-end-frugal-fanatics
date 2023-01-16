@@ -1,14 +1,14 @@
 import { query } from "../database/index.js";
 
-export async function getAllIncome() {
-  const result = await query(`SELECT * FROM income`);
-  return result.rows;
-}
+// export async function getAllIncome() {
+//   const result = await query(`SELECT * FROM income`);
+//   return result.rows;
+// }
 
-export async function getIncome(user_id) {
+export async function getIncome(userid) {
   const result = await query(
-    `SELECT totalIncome FROM Income WHERE user_ID = $1`,
-    [user_id]
+    `SELECT total_income FROM Income WHERE user_ID = $1`,
+    [userid.user_id]
   );
   const IncomeArray = result.rows;
   console.log(`this is the list by ${IncomeArray}`);
