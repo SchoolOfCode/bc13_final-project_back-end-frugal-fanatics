@@ -83,12 +83,12 @@ To be completed: We will state here what we learned while building this project 
 
 ## Authors
 
-- [Stephanie de Jong](107569008+skdejong@users.noreply.github.com)
-- [Callum Cheshire](84125856+callum-cheshire@users.noreply.github.com)
-- [Mukti Zavery](110194915+mvhmz81@users.noreply.github.com)
-- [Franzsii](112544263+Franzsii@users.noreply.github.com)
-- [Elliot](113646037+elliottasker@users.noreply.github.com)
-- [Shane Downes](112191948+shane-downes@users.noreply.github.com)
+- [@skdejong](107569008+skdejong@users.noreply.github.com)
+- [@callum-cheshire](84125856+callum-cheshire@users.noreply.github.com)
+- [@mvhmz81](110194915+mvhmz81@users.noreply.github.com)
+- [@Franzsii](112544263+Franzsii@users.noreply.github.com)
+- [@elliottasker](113646037+elliottasker@users.noreply.github.com)
+- [@shane-downes](112191948+shane-downes@users.noreply.github.com)
 
 
 ## Screenshots
